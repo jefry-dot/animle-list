@@ -1,8 +1,10 @@
 
+
 const Page = () => {
     
     return (
     <div>Search page arrow</div>
+  
 );
 
 }
