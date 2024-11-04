@@ -1,18 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export const AnimeList = () => {
+export const AnimeList = ({ title, imageUrl, id }: { title: string; imageUrl: any; id: number }) => {
     return (
-        <div className="grid grid-cols-3 gap-4  gap-4 h-32">
-            <div className="bg-red-500"><Image src="https://placehold.co/600x400/png" 
-            alt="image" width={600} height={600}/>
-            <h3>Judul Anime </h3>
-            </div>
-            <div className="bg-red-500">Kotak 2</div>
-            <div className="bg-red-500">Kotak 3</div>
-            <div className="bg-red-500">Kotak 4</div>
-            <div className="bg-red-500">Kotak 5</div>
-            <div className="bg-red-500">Kotak 6</div>
-        </div>
+        
+            <Link href={`/anime/${id}`} className="cursor-pointer">
+                <Image  src={imageUrl} alt="..."  width={350} height={350}  
+                className="w-full max=h-64 object-cover"/>
+                <h3 className="font-bold md:text-xl text-md p-4">{title}</h3>
+            </Link>
+        
     );
 };
 
