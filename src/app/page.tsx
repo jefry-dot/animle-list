@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Header from "./components/AnimeList/Header";
 import AnimeList from "./components/AnimeList";
 
 const Home = async () => {
@@ -6,17 +6,19 @@ const Home = async () => {
   const topAnime = await response.json();
 
   return (
-    <div>
-    <div className="flex justify-between item-center p-4">
-      <h1 className="text-2xl font-bold">Paling Populer</h1>
-      <Link href="/popular" className="md:text-xl text:md underline hover:text-indigo-500 transition-all">
-      Lihat Semua
-      
-      </Link>
-      </div>
-      
+    // paling populer
+    <>
+    <section>
+      <Header title="Paling Populer" linkHref="/top/anime" linkTitle="Lihat Semua" />
       <AnimeList api={topAnime} />
-    </div>
+    </section>
+
+    <section>
+      <Header title="Paling Baru" linkHref="/top/new" linkTitle="Lihat Semua" />
+      <AnimeList api={topAnime} />
+    </section>
+    </>
+    
   );
 };
 
