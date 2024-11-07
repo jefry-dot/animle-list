@@ -21,9 +21,14 @@ const InputSearch = () => {
         placeholder="Cari anime"
         className="w-full p-2 rounded"
         ref={searchRef}
+        onKeyDown={(event : any) => {
+          if (event.key === "Enter") {
+            handleSearch(event);
+          }
+        }}
         // onchange
       />
-      <button className="absolute top-2 right-2" onClick={handleSearch}>
+      <button className="absolute top-2 right-2" onClick={ handleSearch }>
         <MagnifyingGlass size={24} />
       </button>
     </div>

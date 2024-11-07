@@ -1,7 +1,8 @@
 import Header from "./components/AnimeList/Header";
 import AnimeList from "./components/AnimeList";
+import Link from "next/link";
 
-const Home = async () => {
+const Page = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?limit=8`);
   const topAnime = await response.json();
 
@@ -9,17 +10,14 @@ const Home = async () => {
     // paling populer
     <>
     <section>
-      <Header title="Paling Populer" linkHref="/top/anime" linkTitle="Lihat Semua" />
+      <Header title="Paling Populer" linkHref="/popular" linkTitle="Lihat Semua" />
       <AnimeList api={topAnime} />
     </section>
 
-    <section>
-      <Header title="Paling Baru" linkHref="/top/new" linkTitle="Lihat Semua" />
-      <AnimeList api={topAnime} />
-    </section>
+   
     </>
     
   );
 };
 
-export default Home;
+export default Page;
